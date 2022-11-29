@@ -31,7 +31,7 @@ public class addUser extends HttpServlet {
             String password = req.getParameter ("password");
             try {
                 Class.forName ("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection ("jdbc:sqlite:identifier.sqlite");
+                Connection con = DriverManager.getConnection ("jdbc:sqlite:crud.sqlite");
                 Statement stmt = con.createStatement ();
                 stmt.executeUpdate ("insert into users values (" + id + ",'" + name + "', '" + password + "')");
                 out.println ("<h1>Record Inserted Successfully</h1>");
