@@ -60,25 +60,6 @@ public class userHandler {
         return status;
     }
 
-    public static user getUserById (int id) {
-        user u = new user();
-        try {
-            Connection conn = userHandler.getConnection();
-            PreparedStatement ps =conn.prepareStatement ("select * from users where id=?");
-            ps.setInt (1, id);
-            ResultSet rs = ps.executeQuery ();
-            if (rs.next ()) {
-                u.setId (rs.getInt (1));
-                u.setName (rs.getString (2));
-                u.setPassword (rs.getString (3));
-            }
-            conn.close();
-        } catch (Exception ex) {
-            ex.printStackTrace ();
-        }
-        return u;
-    }
-
     public static List <user> getAllUsers() {
         List<user> list = new ArrayList<user>();
         try {
