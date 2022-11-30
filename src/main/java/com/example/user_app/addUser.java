@@ -25,17 +25,15 @@ public class addUser extends HttpServlet {
         processRequest (req, resp);
         try {
             PrintWriter out = resp.getWriter ();
-            String uid = req.getParameter ("id");
-            int id = Integer.parseInt (uid);
             String name = req.getParameter ("name");
             String password = req.getParameter ("password");
             try {
                 Class.forName ("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection ("jdbc:sqlite:crud.sqlite");
+                Connection con = DriverManager.getConnection ("jdbc:mysql://localhost:3306/user_app","root","vladR4589!");
                 Statement stmt = con.createStatement ();
-                stmt.executeUpdate ("insert into users values (" + id + ",'" + name + "', '" + password + "')");
+                stmt.executeUpdate ("insert into usert values (" + name + ",'" + password + "')");
                 out.println ("<h1>Record Inserted Successfully</h1>");
-                String sql = "select * from users";
+                String sql = "select * from usert";
                 ResultSet rs = stmt.executeQuery (sql);
                 out.println ("<form action = 'display' method='post'>");
                 out.print ("<tr><a href ='display'>View User</a></td></tr>");

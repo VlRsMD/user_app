@@ -19,10 +19,10 @@ public class display extends HttpServlet {
         out.println ("<h1>Users List</h1>");
         List <user> list = userHandler.getAllUsers();
         out.print ("<table border='1' width='100%' ");
-        out.print("<tr><th>Id</th><th>Name</th><th>Password</th><th>Update</th><th>Delete</th></tr>");
+        out.print("<tr><th>Name</th><th>Password</th><th>Update</th><th>Delete</th></tr>");
 
         for (user u:list) {
-            out.print ("<tr><td>" + u.getId () + "</td><td>" + u.getName () + "</td><td>" + u.getPassword () + "</td><td><a href='updateUser?id=" + u.getId () + "'>update</a></td>  <td><a href='deleteUser?id=" + u.getId () + "'>delete</a></td></tr>");
+            out.print ("</td><td>" + u.getName () + "</td><td>" + u.getPassword () + "</td><td><a href='updateUser?name=" + u.getName () + "'>update</a></td>  <td><a href='deleteUser?name=" + u.getName() + "'>delete</a></td></tr>");
         }
         out.print ("</table>");
         out.close ();

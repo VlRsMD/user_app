@@ -1,16 +1,7 @@
 package com.example.user_app;
 
 public class user {
-    private int id;
     private String name, password;
-
-    public int getId () {
-        return id;
-    }
-
-    public void setId (int id) {
-        this.id = id;
-    }
 
     public String getName () {
         return name;
